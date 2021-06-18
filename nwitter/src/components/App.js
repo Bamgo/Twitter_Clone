@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppRouter from "components/Router";
 import {authService} from "myBase";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);  // useState에 로그인 여부를 줌
+  const [init, setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);  // useState에 로그인 여부를 줌
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if(user){
+        setIsLoggedIn(true);
+      }else{
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    });
+  }, []);
   return (
     <React.Fragment>
-      <AppRouter isLoggedIn = {isLoggedIn} />
+      {init ? <AppRouter isLoggedIn = {isLoggedIn} /> : "Initializing..."}
       <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
     </React.Fragment>
   );
