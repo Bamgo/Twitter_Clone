@@ -13,18 +13,34 @@ function App() {
           const end = user.email.substring(0, ind)
           user.updateProfile({displayName:end})
         }
-        setUserObj(user);
+        setUserObj({
+          displayName: user.displayName,
+          uid: user.uid,
+          updateProfile: (args) => user.updateProfile(args),
+        });
       }
       setInit(true);
     });
   }, []);
+  const refreshUser = () => {
+    const user = authService.currentUser;
+    setUserObj({
+      displayName: user.displayName,
+      uid: user.uid,
+      updateProfile: (args) => user.updateProfile(args),
+    });
+  };
   return (
     <React.Fragment>
       {init ? (
-        <AppRouter isLoggedIn = {Boolean(userObj)} userObj={userObj} />)
-       : (
+        <AppRouter
+          refreshUser={refreshUser}
+          isLoggedIn = {Boolean(userObj)}
+          userObj={userObj} 
+        />
+      ) : (
          "Initializing..."
-       )}
+      )}
     </React.Fragment>
   );
 }

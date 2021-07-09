@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { authService } from "../myBase";
 import { useHistory } from "react-router-dom";
 
-export default ({ userObj }) => {
+export default ({ refreshUser, userObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const onLogOutClick = () => {
@@ -17,10 +17,11 @@ export default ({ userObj }) => {
   };
   const onSubmit = async (event) => {
     event.preventDefault();
-    if (userObj.displayName != newDisplayName){
+    if (userObj.displayName !== newDisplayName){
       await userObj.updateProfile ({
         displayName: newDisplayName,
       });
+      refreshUser();
     }
   };
   return (
