@@ -7,17 +7,14 @@ function App() {
   const [userObj, setUserObj] = useState(null);
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
-      if(user){
-        if(user.displayName == null){
-          const ind = user.email.indexOf("@")
-          const end = user.email.substring(0, ind)
-          user.updateProfile({displayName:end})
-        }
+      if (user) {
         setUserObj({
           displayName: user.displayName,
           uid: user.uid,
           updateProfile: (args) => user.updateProfile(args),
         });
+      } else {
+        setUserObj(null);
       }
       setInit(true);
     });
