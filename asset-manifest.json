@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Twitter_Clone/static/css/main.561ce19a.chunk.css",
+    "main.js": "/Twitter_Clone/static/js/main.c1126775.chunk.js",
+    "main.js.map": "/Twitter_Clone/static/js/main.c1126775.chunk.js.map",
+    "runtime-main.js": "/Twitter_Clone/static/js/runtime-main.90892831.js",
+    "runtime-main.js.map": "/Twitter_Clone/static/js/runtime-main.90892831.js.map",
+    "static/js/2.ec6795a8.chunk.js": "/Twitter_Clone/static/js/2.ec6795a8.chunk.js",
+    "static/js/2.ec6795a8.chunk.js.map": "/Twitter_Clone/static/js/2.ec6795a8.chunk.js.map",
+    "index.html": "/Twitter_Clone/index.html",
+    "static/css/main.561ce19a.chunk.css.map": "/Twitter_Clone/static/css/main.561ce19a.chunk.css.map",
+    "static/js/2.ec6795a8.chunk.js.LICENSE.txt": "/Twitter_Clone/static/js/2.ec6795a8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.90892831.js",
+    "static/js/2.ec6795a8.chunk.js",
+    "static/css/main.561ce19a.chunk.css",
+    "static/js/main.c1126775.chunk.js"
+  ]
+}
